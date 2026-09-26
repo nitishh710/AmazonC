@@ -1,0 +1,414 @@
+{
+  "sources": {
+    "train_S1": {
+      "rows": 2206821,
+      "unique_entity_ids": 2206821,
+      "duplicate_entity_ids": 0,
+      "missing_values": {},
+      "country_distribution": {
+        "US": 1323633,
+        "India": 883188
+      },
+      "length_distributions": {
+        "business_name": {
+          "10-19": 623250,
+          "20-39": 1485635,
+          "40-79": 52586,
+          "5-9": 41799,
+          "1-4": 3523,
+          "80-159": 28
+        },
+        "business_address": {
+          "20-39": 1045826,
+          "40-79": 780929,
+          "80-159": 371737,
+          "10-19": 7234,
+          "160+": 1095
+        }
+      },
+      "field_duplicate_patterns_normalised": {
+        "business_name": {
+          "distinct": 1520684,
+          "duplicate_groups": 180757,
+          "rows_in_duplicate_groups": 866894,
+          "duplicate_rows_beyond_first": 686137,
+          "largest_group": 253
+        },
+        "business_address": {
+          "distinct": 2130168,
+          "duplicate_groups": 40515,
+          "rows_in_duplicate_groups": 117168,
+          "duplicate_rows_beyond_first": 76653,
+          "largest_group": 14
+        }
+      },
+      "exact_duplicate_patterns_all_non_id_fields": {
+        "distinct": 2206821,
+        "duplicate_groups": 0,
+        "rows_in_duplicate_groups": 0,
+        "duplicate_rows_beyond_first": 0,
+        "largest_group": 1
+      },
+      "characteristics": {
+        "names_with_digits": 35585,
+        "names_with_punctuation": 461669,
+        "names_with_ampersand_or_plus": 115368,
+        "addresses_with_digits": 2129784,
+        "addresses_with_comma": 2206821,
+        "addresses_with_postal_like_number": 147257
+      }
+    },
+    "train_S2": {
+      "rows": 5034616,
+      "unique_entity_ids": 5034616,
+      "duplicate_entity_ids": 0,
+      "missing_values": {
+        "business_address": 168967,
+        "business_name": 6
+      },
+      "country_distribution": {
+        "US": 3016817,
+        "India": 2017799
+      },
+      "length_distributions": {
+        "business_name": {
+          "20-39": 3281139,
+          "10-19": 1334133,
+          "40-79": 299289,
+          "1-4": 7494,
+          "5-9": 112505,
+          "80-159": 56
+        },
+        "business_address": {
+          "40-79": 1566990,
+          "20-39": 2664977,
+          "80-159": 608020,
+          "0-0": 168967,
+          "10-19": 24084,
+          "160+": 1555,
+          "5-9": 23
+        }
+      },
+      "field_duplicate_patterns_normalised": {
+        "business_name": {
+          "distinct": 3824065,
+          "duplicate_groups": 330243,
+          "rows_in_duplicate_groups": 1540794,
+          "duplicate_rows_beyond_first": 1210551,
+          "largest_group": 455760
+        },
+        "business_address": {
+          "distinct": 4281382,
+          "duplicate_groups": 461195,
+          "rows_in_duplicate_groups": 1214429,
+          "duplicate_rows_beyond_first": 753234,
+          "largest_group": 168967
+        }
+      },
+      "exact_duplicate_patterns_all_non_id_fields": {
+        "distinct": 4961860,
+        "duplicate_groups": 68678,
+        "rows_in_duplicate_groups": 141434,
+        "duplicate_rows_beyond_first": 72756,
+        "largest_group": 10
+      },
+      "characteristics": {
+        "names_with_digits": 255636,
+        "names_with_punctuation": 2158861,
+        "names_with_ampersand_or_plus": 234873,
+        "addresses_with_digits": 4563675,
+        "addresses_with_comma": 4865649,
+        "addresses_with_postal_like_number": 369140
+      }
+    },
+    "train_S3": {
+      "rows": 5285603,
+      "unique_entity_ids": 5285603,
+      "duplicate_entity_ids": 0,
+      "missing_values": {
+        "business_address": 175916,
+        "business_name": 18
+      },
+      "country_distribution": {
+        "US": 3170056,
+        "India": 2115547
+      },
+      "length_distributions": {
+        "business_name": {
+          "10-19": 1374294,
+          "40-79": 379456,
+          "20-39": 3349685,
+          "5-9": 156089,
+          "1-4": 25990,
+          "80-159": 89
+        },
+        "business_address": {
+          "20-39": 2020696,
+          "0-0": 175916,
+          "40-79": 2556073,
+          "80-159": 478253,
+          "10-19": 53030,
+          "5-9": 413,
+          "160+": 1221,
+          "1-4": 1
+        }
+      },
+      "field_duplicate_patterns_normalised": {
+        "business_name": {
+          "distinct": 4132933,
+          "duplicate_groups": 359575,
+          "rows_in_duplicate_groups": 1512245,
+          "duplicate_rows_beyond_first": 1152670,
+          "largest_group": 243630
+        },
+        "business_address": {
+          "distinct": 4614551,
+          "duplicate_groups": 393894,
+          "rows_in_duplicate_groups": 1064946,
+          "duplicate_rows_beyond_first": 671052,
+          "largest_group": 175916
+        }
+      },
+      "exact_duplicate_patterns_all_non_id_fields": {
+        "distinct": 5233275,
+        "duplicate_groups": 49966,
+        "rows_in_duplicate_groups": 102294,
+        "duplicate_rows_beyond_first": 52328,
+        "largest_group": 8
+      },
+      "characteristics": {
+        "names_with_digits": 270847,
+        "names_with_punctuation": 2119387,
+        "names_with_ampersand_or_plus": 249298,
+        "addresses_with_digits": 4799297,
+        "addresses_with_comma": 5109686,
+        "addresses_with_postal_like_number": 385727
+      }
+    },
+    "test_S1": {
+      "rows": 1732544,
+      "unique_entity_ids": 1732544,
+      "duplicate_entity_ids": 0,
+      "missing_values": {},
+      "country_distribution": {
+        "India": 809986,
+        "US": 663106,
+        "France": 259452
+      },
+      "length_distributions": {
+        "business_name": {
+          "10-19": 525192,
+          "20-39": 1139584,
+          "40-79": 38891,
+          "5-9": 27169,
+          "1-4": 1694,
+          "80-159": 14
+        },
+        "business_address": {
+          "20-39": 541769,
+          "40-79": 843054,
+          "80-159": 343232,
+          "10-19": 3565,
+          "160+": 924
+        }
+      },
+      "field_duplicate_patterns_normalised": {
+        "business_name": {
+          "distinct": 1228140,
+          "duplicate_groups": 132124,
+          "rows_in_duplicate_groups": 636528,
+          "duplicate_rows_beyond_first": 504404,
+          "largest_group": 205
+        },
+        "business_address": {
+          "distinct": 1673947,
+          "duplicate_groups": 34220,
+          "rows_in_duplicate_groups": 92817,
+          "duplicate_rows_beyond_first": 58597,
+          "largest_group": 101
+        }
+      },
+      "exact_duplicate_patterns_all_non_id_fields": {
+        "distinct": 1732543,
+        "duplicate_groups": 1,
+        "rows_in_duplicate_groups": 2,
+        "duplicate_rows_beyond_first": 1,
+        "largest_group": 2
+      },
+      "characteristics": {
+        "names_with_digits": 20207,
+        "names_with_punctuation": 317477,
+        "names_with_ampersand_or_plus": 88683,
+        "addresses_with_digits": 1660706,
+        "addresses_with_comma": 1732544,
+        "addresses_with_postal_like_number": 75634
+      }
+    },
+    "test_S2": {
+      "rows": 4887273,
+      "unique_entity_ids": 4887273,
+      "duplicate_entity_ids": 0,
+      "missing_values": {
+        "business_address": 129408,
+        "business_name": 49
+      },
+      "country_distribution": {
+        "India": 2312565,
+        "US": 1871330,
+        "France": 703378
+      },
+      "length_distributions": {
+        "business_name": {
+          "10-19": 1230831,
+          "20-39": 3197605,
+          "40-79": 357335,
+          "1-4": 15044,
+          "5-9": 86380,
+          "80-159": 78
+        },
+        "business_address": {
+          "40-79": 1973057,
+          "20-39": 2056791,
+          "80-159": 707925,
+          "0-0": 129408,
+          "10-19": 18188,
+          "160+": 1703,
+          "5-9": 201
+        }
+      },
+      "field_duplicate_patterns_normalised": {
+        "business_name": {
+          "distinct": 3744675,
+          "duplicate_groups": 288523,
+          "rows_in_duplicate_groups": 1431121,
+          "duplicate_rows_beyond_first": 1142598,
+          "largest_group": 526050
+        },
+        "business_address": {
+          "distinct": 4145357,
+          "duplicate_groups": 503783,
+          "rows_in_duplicate_groups": 1245699,
+          "duplicate_rows_beyond_first": 741916,
+          "largest_group": 129408
+        }
+      },
+      "exact_duplicate_patterns_all_non_id_fields": {
+        "distinct": 4819819,
+        "duplicate_groups": 63575,
+        "rows_in_duplicate_groups": 131029,
+        "duplicate_rows_beyond_first": 67454,
+        "largest_group": 12
+      },
+      "characteristics": {
+        "names_with_digits": 190009,
+        "names_with_punctuation": 2000796,
+        "names_with_ampersand_or_plus": 230627,
+        "addresses_with_digits": 4529243,
+        "addresses_with_comma": 4757683,
+        "addresses_with_postal_like_number": 247928
+      }
+    },
+    "test_S3": {
+      "rows": 5082316,
+      "unique_entity_ids": 5082316,
+      "duplicate_entity_ids": 0,
+      "missing_values": {
+        "business_address": 136098,
+        "business_name": 61
+      },
+      "country_distribution": {
+        "India": 2405000,
+        "US": 1945701,
+        "France": 731615
+      },
+      "length_distributions": {
+        "business_name": {
+          "10-19": 1267642,
+          "20-39": 3249766,
+          "40-79": 407524,
+          "5-9": 124034,
+          "1-4": 33240,
+          "80-159": 110
+        },
+        "business_address": {
+          "40-79": 2551279,
+          "20-39": 1783312,
+          "80-159": 548648,
+          "0-0": 136098,
+          "10-19": 61037,
+          "5-9": 575,
+          "160+": 1367
+        }
+      },
+      "field_duplicate_patterns_normalised": {
+        "business_name": {
+          "distinct": 4028232,
+          "duplicate_groups": 316873,
+          "rows_in_duplicate_groups": 1370957,
+          "duplicate_rows_beyond_first": 1054084,
+          "largest_group": 280779
+        },
+        "business_address": {
+          "distinct": 4414643,
+          "duplicate_groups": 432089,
+          "rows_in_duplicate_groups": 1099762,
+          "duplicate_rows_beyond_first": 667673,
+          "largest_group": 136099
+        }
+      },
+      "exact_duplicate_patterns_all_non_id_fields": {
+        "distinct": 5036853,
+        "duplicate_groups": 43437,
+        "rows_in_duplicate_groups": 88900,
+        "duplicate_rows_beyond_first": 45463,
+        "largest_group": 7
+      },
+      "characteristics": {
+        "names_with_digits": 202470,
+        "names_with_punctuation": 1900369,
+        "names_with_ampersand_or_plus": 240271,
+        "addresses_with_digits": 4700823,
+        "addresses_with_comma": 4946064,
+        "addresses_with_postal_like_number": 256051
+      }
+    }
+  },
+  "ground_truth": {
+    "ground_truth_rows": 2206821,
+    "source1_records_without_ground_truth_row": 0,
+    "total_links": 7638365,
+    "singleton_source1_records": 123247,
+    "singleton_rate": 0.05584820880352326,
+    "links_per_source1_distribution": {
+      "0": 123247,
+      "1": 119157,
+      "2": 375212,
+      "3": 530841,
+      "4": 484115,
+      "5": 321957,
+      "6": 164868,
+      "7": 63968,
+      "8": 18680,
+      "9": 4205,
+      "10": 534,
+      "11": 37
+    },
+    "source_pair_statistics_by_source1": {
+      "S2+S3": 1776047,
+      "S3": 164498,
+      "none": 123247,
+      "S2": 143029
+    },
+    "link_counts_by_target_source": {
+      "S2": 3693619,
+      "S3": 3944746
+    },
+    "target_reuse": {
+      "distinct": 7638365,
+      "duplicate_groups": 0,
+      "rows_in_duplicate_groups": 0,
+      "duplicate_rows_beyond_first": 0,
+      "largest_group": 1
+    }
+  }
+}

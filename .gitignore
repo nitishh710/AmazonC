@@ -1,0 +1,9 @@
+dataset/
+*.csv
+*.tsv
+*.parquet
+__pycache__/
+.venv/
+.env
+.DS_Store
+*.sqlite
