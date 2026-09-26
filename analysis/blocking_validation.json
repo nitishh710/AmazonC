@@ -4,23 +4,29 @@
   "training_source1_rows": 2206821,
   "validation_fraction": 0.010088720381036795,
   "target_rows": 10320219,
-  "candidate_key_postings": 4438134,
-  "query_key_rows": 59395,
+  "candidate_key_postings": 14659951,
+  "query_key_rows": 112936,
+  "country_diagnostics": {
+    "ground_truth_target_ids_found": 76838,
+    "ground_truth_target_country_mismatches": 0
+  },
   "eligible_query_keys_by_kind": {
-    "exact_name": 15067,
-    "name_token": 10165,
-    "name_character_trigram": 906,
-    "postal_number": 1384,
-    "address_token": 18790
+    "exact_name": 15062,
+    "name_token": 12198,
+    "name_character_trigram": 5440,
+    "postal_number": 1386,
+    "address_token": 25253,
+    "exact_address": 5370
   },
   "df_limits": {
     "exact_name": 500,
-    "name_token": 1000,
-    "name_character_trigram": 150,
+    "name_token": 3000,
+    "name_character_trigram": 1000,
     "postal_number": 5000,
-    "address_token": 500
+    "address_token": 2000,
+    "exact_address": 1500
   },
-  "max_candidate_limit": 1000,
+  "max_candidate_limit": 2000,
   "metrics": {
     "records": 22264,
     "positive_source1_records": 21033,
@@ -33,159 +39,159 @@
     },
     "tiers": {
       "exact_name": {
-        "50": {
-          "candidate_recall_micro": 0.20988313074260131,
-          "mean_recall_per_linked_source1": 0.21074479332930338,
-          "average_candidates_per_source1": 6.052057132590729,
-          "candidate_reduction_ratio": 0.9999994135727999,
-          "candidate_count_p50": 1,
-          "candidate_count_p95": 50,
-          "candidate_count_p99": 50,
-          "candidate_count_max": 50
-        },
         "100": {
           "candidate_recall_micro": 0.21533616179494522,
           "mean_recall_per_linked_source1": 0.2161994492403849,
-          "average_candidates_per_source1": 7.904913762127201,
-          "candidate_reduction_ratio": 0.9999992340362388,
+          "average_candidates_per_source1": 7.890945023356091,
+          "candidate_reduction_ratio": 0.99999923538977,
           "candidate_count_p50": 1,
           "candidate_count_p95": 58,
           "candidate_count_p99": 100,
           "candidate_count_max": 100
         },
-        "200": {
-          "candidate_recall_micro": 0.2180171269423983,
-          "mean_recall_per_linked_source1": 0.21898186825087407,
-          "average_candidates_per_source1": 9.235806683435142,
-          "candidate_reduction_ratio": 0.999999105076483,
+        "250": {
+          "candidate_recall_micro": 0.21821234285119342,
+          "mean_recall_per_linked_source1": 0.21915353726079725,
+          "average_candidates_per_source1": 9.40599173553719,
+          "candidate_reduction_ratio": 0.9999990885860334,
           "candidate_count_p50": 1,
           "candidate_count_p95": 58,
           "candidate_count_p99": 170,
-          "candidate_count_max": 200
+          "candidate_count_max": 250
         },
         "500": {
           "candidate_recall_micro": 0.21838152997214919,
           "mean_recall_per_linked_source1": 0.21931009396420892,
-          "average_candidates_per_source1": 9.545454545454545,
-          "candidate_reduction_ratio": 0.999999075072482,
+          "average_candidates_per_source1": 9.518595041322314,
+          "candidate_reduction_ratio": 0.9999990776750919,
           "candidate_count_p50": 1,
           "candidate_count_p95": 58,
           "candidate_count_p99": 170,
-          "candidate_count_max": 459
+          "candidate_count_max": 458
         },
         "1000": {
           "candidate_recall_micro": 0.21838152997214919,
           "mean_recall_per_linked_source1": 0.21931009396420892,
-          "average_candidates_per_source1": 9.545454545454545,
-          "candidate_reduction_ratio": 0.999999075072482,
+          "average_candidates_per_source1": 9.518595041322314,
+          "candidate_reduction_ratio": 0.9999990776750919,
           "candidate_count_p50": 1,
           "candidate_count_p95": 58,
           "candidate_count_p99": 170,
-          "candidate_count_max": 459
+          "candidate_count_max": 458
+        },
+        "2000": {
+          "candidate_recall_micro": 0.21838152997214919,
+          "mean_recall_per_linked_source1": 0.21931009396420892,
+          "average_candidates_per_source1": 9.518595041322314,
+          "candidate_reduction_ratio": 0.9999990776750919,
+          "candidate_count_p50": 1,
+          "candidate_count_p95": 58,
+          "candidate_count_p99": 170,
+          "candidate_count_max": 458
         }
       },
       "name_only": {
-        "50": {
-          "candidate_recall_micro": 0.3914989978916682,
-          "mean_recall_per_linked_source1": 0.3913506477726988,
-          "average_candidates_per_source1": 26.609189723320156,
-          "candidate_reduction_ratio": 0.9999974216448582,
-          "candidate_count_p50": 24,
-          "candidate_count_p95": 50,
-          "candidate_count_p99": 50,
-          "candidate_count_max": 50
-        },
         "100": {
-          "candidate_recall_micro": 0.4446627970535412,
-          "mean_recall_per_linked_source1": 0.44423949439995647,
-          "average_candidates_per_source1": 45.88555515630615,
-          "candidate_reduction_ratio": 0.9999955538196277,
-          "candidate_count_p50": 24,
-          "candidate_count_p95": 100,
-          "candidate_count_p99": 100,
-          "candidate_count_max": 100
-        },
-        "200": {
-          "candidate_recall_micro": 0.4905125068325568,
-          "mean_recall_per_linked_source1": 0.48959977103251956,
-          "average_candidates_per_source1": 72.04684692777577,
-          "candidate_reduction_ratio": 0.9999930188645292,
-          "candidate_count_p50": 24,
-          "candidate_count_p95": 200,
-          "candidate_count_p99": 200,
-          "candidate_count_max": 200
-        },
-        "500": {
-          "candidate_recall_micro": 0.5194174757281553,
-          "mean_recall_per_linked_source1": 0.5176422688760444,
-          "average_candidates_per_source1": 108.22394897592525,
-          "candidate_reduction_ratio": 0.999989513405774,
-          "candidate_count_p50": 24,
-          "candidate_count_p95": 500,
-          "candidate_count_p99": 500,
-          "candidate_count_max": 500
-        },
-        "1000": {
-          "candidate_recall_micro": 0.5267706082927718,
-          "mean_recall_per_linked_source1": 0.5248028230769637,
-          "average_candidates_per_source1": 127.05924362199066,
-          "candidate_reduction_ratio": 0.9999876883190539,
-          "candidate_count_p50": 24,
-          "candidate_count_p95": 640,
-          "candidate_count_p99": 991,
-          "candidate_count_max": 1000
-        }
-      },
-      "full_multistage": {
-        "50": {
-          "candidate_recall_micro": 0.6177021786095421,
-          "mean_recall_per_linked_source1": 0.6156140776237767,
-          "average_candidates_per_source1": 39.625224577793745,
-          "candidate_reduction_ratio": 0.9999961604279349,
-          "candidate_count_p50": 50,
-          "candidate_count_p95": 50,
-          "candidate_count_p99": 50,
-          "candidate_count_max": 50
-        },
-        "100": {
-          "candidate_recall_micro": 0.6731044535255993,
-          "mean_recall_per_linked_source1": 0.6704365825461247,
-          "average_candidates_per_source1": 73.64889507725476,
-          "candidate_reduction_ratio": 0.9999928636305996,
+          "candidate_recall_micro": 0.5031494833285614,
+          "mean_recall_per_linked_source1": 0.5015774342510899,
+          "average_candidates_per_source1": 68.18460294646066,
+          "candidate_reduction_ratio": 0.9999933931050352,
           "candidate_count_p50": 100,
           "candidate_count_p95": 100,
           "candidate_count_p99": 100,
           "candidate_count_max": 100
         },
-        "200": {
-          "candidate_recall_micro": 0.7293917072281944,
-          "mean_recall_per_linked_source1": 0.7272827060945731,
-          "average_candidates_per_source1": 129.50215594681998,
-          "candidate_reduction_ratio": 0.9999874516077666,
-          "candidate_count_p50": 188,
-          "candidate_count_p95": 200,
-          "candidate_count_p99": 200,
-          "candidate_count_max": 200
+        "250": {
+          "candidate_recall_micro": 0.5504568052265806,
+          "mean_recall_per_linked_source1": 0.5485551804835787,
+          "average_candidates_per_source1": 151.62199065756377,
+          "candidate_reduction_ratio": 0.9999853082584141,
+          "candidate_count_p50": 250,
+          "candidate_count_p95": 250,
+          "candidate_count_p99": 250,
+          "candidate_count_max": 250
         },
         "500": {
-          "candidate_recall_micro": 0.7745516541294671,
-          "mean_recall_per_linked_source1": 0.7718736203652764,
-          "average_candidates_per_source1": 226.02254761049227,
-          "candidate_reduction_ratio": 0.9999780990551063,
-          "candidate_count_p50": 188,
+          "candidate_recall_micro": 0.5794789036674562,
+          "mean_recall_per_linked_source1": 0.5772344516817488,
+          "average_candidates_per_source1": 272.52070607258355,
+          "candidate_reduction_ratio": 0.9999735935152081,
+          "candidate_count_p50": 307,
           "candidate_count_p95": 500,
           "candidate_count_p99": 500,
           "candidate_count_max": 500
         },
         "1000": {
-          "candidate_recall_micro": 0.7823342616934329,
-          "mean_recall_per_linked_source1": 0.7797321706856724,
-          "average_candidates_per_source1": 269.5713259072943,
-          "candidate_reduction_ratio": 0.9999738793017952,
-          "candidate_count_p50": 188,
-          "candidate_count_p95": 878,
+          "candidate_recall_micro": 0.6060803248392722,
+          "mean_recall_per_linked_source1": 0.6036260102227867,
+          "average_candidates_per_source1": 475.39444843693855,
+          "candidate_reduction_ratio": 0.9999539356239981,
+          "candidate_count_p50": 307,
+          "candidate_count_p95": 1000,
           "candidate_count_p99": 1000,
           "candidate_count_max": 1000
+        },
+        "2000": {
+          "candidate_recall_micro": 0.6340222285848148,
+          "mean_recall_per_linked_source1": 0.6321899486747583,
+          "average_candidates_per_source1": 750.5847107438017,
+          "candidate_reduction_ratio": 0.9999272704667659,
+          "candidate_count_p50": 307,
+          "candidate_count_p95": 2000,
+          "candidate_count_p99": 2000,
+          "candidate_count_max": 2000
+        }
+      },
+      "full_multistage": {
+        "100": {
+          "candidate_recall_micro": 0.7765038132174185,
+          "mean_recall_per_linked_source1": 0.7740106147359036,
+          "average_candidates_per_source1": 93.99478979518506,
+          "candidate_reduction_ratio": 0.9999908921710097,
+          "candidate_count_p50": 100,
+          "candidate_count_p95": 100,
+          "candidate_count_p99": 100,
+          "candidate_count_max": 100
+        },
+        "250": {
+          "candidate_recall_micro": 0.8214815586038158,
+          "mean_recall_per_linked_source1": 0.8184998026532757,
+          "average_candidates_per_source1": 226.5395256916996,
+          "candidate_reduction_ratio": 0.999978048961394,
+          "candidate_count_p50": 250,
+          "candidate_count_p95": 250,
+          "candidate_count_p99": 250,
+          "candidate_count_max": 250
+        },
+        "500": {
+          "candidate_recall_micro": 0.8484473828053828,
+          "mean_recall_per_linked_source1": 0.8451256113786423,
+          "average_candidates_per_source1": 430.7428584261588,
+          "candidate_reduction_ratio": 0.9999582622366419,
+          "candidate_count_p50": 500,
+          "candidate_count_p95": 500,
+          "candidate_count_p99": 500,
+          "candidate_count_max": 500
+        },
+        "1000": {
+          "candidate_recall_micro": 0.8721205653452718,
+          "mean_recall_per_linked_source1": 0.8691997043195161,
+          "average_candidates_per_source1": 785.4611929572404,
+          "candidate_reduction_ratio": 0.9999238910343902,
+          "candidate_count_p50": 1000,
+          "candidate_count_p95": 1000,
+          "candidate_count_p99": 1000,
+          "candidate_count_max": 1000
+        },
+        "2000": {
+          "candidate_recall_micro": 0.9030557796923397,
+          "mean_recall_per_linked_source1": 0.9010668609192357,
+          "average_candidates_per_source1": 1304.218963348904,
+          "candidate_reduction_ratio": 0.9998736248752716,
+          "candidate_count_p50": 1588,
+          "candidate_count_p95": 2000,
+          "candidate_count_p99": 2000,
+          "candidate_count_max": 2000
         }
       }
     }

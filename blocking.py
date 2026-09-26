@@ -28,13 +28,14 @@ REPORT_OUT = ROOT / "BLOCKING_ANALYSIS.md"
 FIELDS = ("entity_id", "business_name", "business_address", "country")
 
 # Kind values are persisted in SQLite and used to keep the stages interpretable.
-EXACT_NAME, NAME_TOKEN, NAME_NGRAM, POSTAL, ADDRESS_TOKEN = range(1, 6)
+EXACT_NAME, NAME_TOKEN, NAME_NGRAM, POSTAL, ADDRESS_TOKEN, EXACT_ADDRESS = range(1, 7)
 KIND_NAMES = {
     EXACT_NAME: "exact_name",
     NAME_TOKEN: "name_token",
     NAME_NGRAM: "name_character_trigram",
     POSTAL: "postal_number",
     ADDRESS_TOKEN: "address_token",
+    EXACT_ADDRESS: "exact_address",
 }
 DF_LIMITS = {
     EXACT_NAME: 500,
@@ -42,6 +43,7 @@ DF_LIMITS = {
     NAME_NGRAM: 1_000,
     POSTAL: 5_000,
     ADDRESS_TOKEN: 2_000,
+    EXACT_ADDRESS: 1_500,
 }
 MAX_CANDIDATE_LIMIT = 2_000
 EVALUATION_LIMITS = (100, 250, 500, 1_000, 2_000)
@@ -121,6 +123,7 @@ def read_labels(path: Path, heldout_ids: set[str]) -> dict[str, set[str]]:
 def query_feature_sets(records: list[Record]) -> dict[int, set[tuple[str, str]]]:
     features: dict[int, set[tuple[str, str]]] = {
         EXACT_NAME: set(),
+        EXACT_ADDRESS: set(),
         NAME_TOKEN: set(),
         NAME_NGRAM: set(),
         POSTAL: set(),
@@ -128,6 +131,7 @@ def query_feature_sets(records: list[Record]) -> dict[int, set[tuple[str, str]]]
     }
     for record in records:
         features[EXACT_NAME].add((record.country, record.name))
+        features[EXACT_ADDRESS].add((record.country, record.address))
         features[NAME_TOKEN].update((record.country, value) for value in tokens(record.name))
         features[NAME_NGRAM].update((record.country, value) for value in trigrams(record.name))
         features[POSTAL].update((record.country, value) for value in postal_numbers(record.address))
@@ -152,6 +156,7 @@ def target_keys(country: str, name: str, address: str,
     keys: set[tuple[int, str, str]] = set()
     candidates = (
         (EXACT_NAME, (name,)),
+        (EXACT_ADDRESS, (address,)),
         (NAME_TOKEN, tokens(name)),
         (NAME_NGRAM, trigrams(name)),
         (POSTAL, postal_numbers(address)),
@@ -193,6 +198,7 @@ def load_validation_key_frequencies(target_paths: tuple[Path, Path],
                 address = normalize(row["business_address"].strip())
                 country = row["country"].strip()
                 increment_relevant(frequencies, EXACT_NAME, country, (name,), query_features)
+                increment_relevant(frequencies, EXACT_ADDRESS, country, (address,), query_features)
                 increment_relevant(frequencies, NAME_TOKEN, country, tokens(name), query_features)
                 increment_relevant(frequencies, NAME_NGRAM, country, trigrams(name), query_features)
                 increment_relevant(frequencies, POSTAL, country, postal_numbers(address), query_features)
@@ -255,6 +261,8 @@ def key_weight(kind: int, df: int) -> float:
     idf = 1.0 + math.log1p(DF_LIMITS[kind] / max(df, 1))
     if kind == EXACT_NAME:
         return 8.0 + idf
+    if kind == EXACT_ADDRESS:
+        return 6.0 + idf
     if kind == NAME_TOKEN:
         return 2.0 * idf
     if kind == NAME_NGRAM:
@@ -288,7 +296,7 @@ def rank_candidates(db: sqlite3.Connection, records: list[Record], labels: dict[
             SELECT q.qid, b.target_id,
                    SUM(CASE WHEN q.kind = 1 THEN q.weight ELSE 0 END) AS exact_score,
                    SUM(CASE WHEN q.kind IN (1, 2, 3) THEN q.weight ELSE 0 END) AS name_score,
-                   SUM(CASE WHEN q.kind IN (4, 5) THEN q.weight ELSE 0 END) AS address_score
+                   SUM(CASE WHEN q.kind IN (4, 5, 6) THEN q.weight ELSE 0 END) AS address_score
             FROM query_keys q JOIN blocks b ON b.k = q.k
             GROUP BY q.qid, b.target_id
         ), weighted AS (
@@ -401,9 +409,9 @@ def write_report(summary: dict) -> None:
         "1. **Exact normalized name:** lowercase alphanumeric normalization; only values with at most 500 target postings are indexed.",
         "2. **Name token overlap:** shared tokens of at least three characters, retaining only corpus document frequencies up to 3,000.",
         "3. **Name character trigrams:** shared trigrams from names, capped at 1,000 target postings per key to tolerate small spelling edits without unbounded expansions.",
-        "4. **Address evidence:** shared 5–6 digit address number (up to 5,000 postings) or address token of at least four characters (up to 2,000 postings).",
+        "4. **Address evidence:** exact normalized address (up to 1,500 postings), shared 5–6 digit address number (up to 5,000 postings), or address token of at least four characters (up to 2,000 postings).",
         "",
-        "All block keys are scoped by the record's exact country label. This uses country equality to reduce cross-country collisions without hard-coding a country list, so unseen labels remain eligible. A deterministic evidence score ranks candidates using twice the name-evidence score plus address-evidence score; exact name, rare shared name tokens, character trigrams, postal-like numbers, and address tokens contribute. Scores are only for candidate ordering, not match decisions. For evaluation, each tier is independently capped at 100/250/500/1,000/2,000 candidates per S1.",
+        "All block keys are scoped by the record's exact country label. This uses country equality to reduce cross-country collisions without hard-coding a country list, so unseen labels remain eligible. A deterministic evidence score ranks candidates using twice the name-evidence score plus address-evidence score; exact and rare-token name evidence, character trigrams, exact address, postal-like numbers, and address tokens contribute. Scores are only for candidate ordering, not match decisions. For evaluation, each tier is independently capped at 100/250/500/1,000/2,000 candidates per S1.",
         "",
         "## Held-out blocking results",
         "",
