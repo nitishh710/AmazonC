@@ -52,7 +52,7 @@ def main():
     print("\n--- Threshold Sweep (F0.5 Optimization) ---")
     probas = model.predict_proba(X)
     
-    for thresh in np.arange(0.50, 0.95, 0.05):
+    for thresh in np.arange(0.10, 0.95, 0.05):
         preds = (probas >= thresh).astype(int)
         
         tp = np.sum((preds == 1) & (np.array(y) == 1))
